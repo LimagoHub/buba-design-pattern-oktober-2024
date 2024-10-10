@@ -8,14 +8,14 @@ namespace Tag1_02Singleton
 {
     public class MySingleton
     {
-        private static MySingleton instance = null;
+        private static readonly MySingleton instance = new MySingleton();
 
         public static MySingleton GetInstance()
         {
-            if(instance == null)
+            /*if(instance == null)
             {
                 instance = new MySingleton();
-            }
+            }*/
             return instance;
         }
        
