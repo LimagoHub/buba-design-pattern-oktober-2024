@@ -8,6 +8,9 @@ namespace Tag1_01Dekorator.Math
 {
     public class Calculator : ICalculator
     {
+
+        internal Calculator() { }
+
         public virtual double Add(double a, double b)
         {
             return a + b;

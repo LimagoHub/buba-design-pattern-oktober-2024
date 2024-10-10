@@ -4,7 +4,10 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            var mysingleton = MySingleton.GetInstance();
+            var myOthersingleton = MySingleton.GetInstance();
+
+            Console.WriteLine(mysingleton == myOthersingleton);
         }
     }
 }

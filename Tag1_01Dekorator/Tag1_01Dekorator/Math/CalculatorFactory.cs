@@ -8,9 +8,15 @@ namespace Tag1_01Dekorator.Math
 {
     public class CalculatorFactory
     {
+        public static bool Logger { get; set; } = false;
+        public static bool Secure { get; set; } = false;
 
         public static ICalculator createInstance() { 
-            return new Calculator(); 
+            ICalculator calcuctor = new Calculator();
+            if(Logger) calcuctor = new CalculatorLogger(calcuctor);
+            if(Secure) calcuctor = new CalculatorSecure(calcuctor);
+
+            return calcuctor;
         }
     }
 }
