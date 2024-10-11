@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrafficLightProject.TrafficLight
 {
-    internal class GreenState : AbstractTrafficLightState
+    internal class GreenState : AbstractTrafficLightColorState
     {
         public GreenState(TrafficLight trafficLight) : base(trafficLight)
         {

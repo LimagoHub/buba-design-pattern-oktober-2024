@@ -10,13 +10,15 @@ namespace TrafficLightProject.TrafficLight
     {
         public ITrafficLightState RedState { get;}
         public ITrafficLightState GreenState { get; }
+        public ITrafficLightState OffState { get; }
         public ITrafficLightState Current { get; set; }
 
         public TrafficLight()
         {
             RedState = new RedState(this);
             GreenState = new GreenState(this);
-            Current = RedState;
+            OffState = new OffState(this);
+            Current = OffState;
         }
 
         public string GetColor()
@@ -28,7 +30,15 @@ namespace TrafficLightProject.TrafficLight
             Current.NextColor();
         }
 
+        public void SwitchOn()
+        {
+            Current.SwitchOn();
+        }
 
+        public void SwitchOff()
+        {
+            Current.SwitchOff();
+        }
 
     }
 }
