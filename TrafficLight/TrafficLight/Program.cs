@@ -1,10 +1,17 @@
-﻿namespace TrafficLight
+﻿using TrafficLightProject.TrafficLight;
+
+namespace Programm
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            TrafficLight trafficLight = new TrafficLight();
+
+            for (int i = 0; i < 10; i++) {
+                Console.WriteLine(trafficLight.GetColor());
+                trafficLight.NextColor();
+            }
         }
     }
 }
