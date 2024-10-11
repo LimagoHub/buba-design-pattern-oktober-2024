@@ -23,7 +23,7 @@ namespace Tag1_04Visitor.Mitarbeiter
 
         public override void accept(MitarbeiterVisitor visitor)
         {
-            visitor.visit(this /* tis ist hier Gehaltsempfaeneger*/);
+            visitor.visit(this /* this ist hier Gehaltsempfaeneger*/);
         }
     }
 }
