@@ -12,12 +12,12 @@ namespace TrafficLightProject.TrafficLight
         {
         }
 
-        public override string GetColor()
+        public override string GetColor()  // Businesslogik
         {
             return "Green";
         }
 
-        public override void NextColor()
+        public override void NextColor() // Statusuebergaenge
         {
             TrafficLight.Current = TrafficLight.RedState;
         }

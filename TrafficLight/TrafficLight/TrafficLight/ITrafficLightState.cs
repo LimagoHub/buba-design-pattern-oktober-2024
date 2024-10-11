@@ -10,5 +10,9 @@ namespace TrafficLightProject.TrafficLight
     {
         string GetColor();
         void NextColor();
+
+        void SwitchOn();
+
+        void SwitchOff();
     }
 }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace TrafficLightProject.TrafficLight
 {
-    internal class AbstractTrafficLightState : ITrafficLightState
+    internal abstract class AbstractTrafficLightState : ITrafficLightState
     {
         public TrafficLight TrafficLight { get;  }
 
-        public AbstractTrafficLightState(TrafficLight trafficLight)
+        protected AbstractTrafficLightState(TrafficLight trafficLight)
         {
             TrafficLight = trafficLight;
         }
