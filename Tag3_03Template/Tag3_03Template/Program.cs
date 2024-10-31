@@ -6,7 +6,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        AbstractFileProcessor abstractFileProcessor = new CharacterCounter();
-        abstractFileProcessor.Run("c:\\tmp\\baerchen.txt");
+        new FileProcessor()
+         .AddFileHandler(new CharacterCounter())
+         .AddFileHandler(new LineCounter())
+         .Run("c:\\tmp\\baerchen.txt");
     }
 }

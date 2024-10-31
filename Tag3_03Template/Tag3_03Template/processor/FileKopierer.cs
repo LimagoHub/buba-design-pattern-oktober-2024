@@ -1,20 +1,20 @@
 ﻿namespace Tag3_03Template.processor;
 
-public class FileKopierer: AbstractFileProcessor
+public class FileKopierer: FileHandler
 {
     
     StreamWriter writer;
-    public override void Init()
+    public  void Init()
     {
         writer = new("FileKopier.txt");
     }
 
-    public override void Process(char c)
+    public  void Process(char c)
     {
         writer.Write(c);
     }
 
-    public override void Dispose()
+    public  void Dispose()
     {
         writer.Dispose();
     }

@@ -1,6 +1,6 @@
 ﻿namespace Tag3_03Template.processor;
 
-public abstract class AbstractCounter: AbstractFileProcessor
+public abstract class AbstractCounter: FileHandler
 {
     private int counter;
 
@@ -11,13 +11,15 @@ public abstract class AbstractCounter: AbstractFileProcessor
         counter++;
     }
 
-    public override void Init()
+    public void Init()
     {
         counter = 0;
     }
 
-    public override void Dispose()
+    public void Dispose()
     {
         Console.WriteLine(counter);
     }
+
+    public abstract void Process(char c);
 }
