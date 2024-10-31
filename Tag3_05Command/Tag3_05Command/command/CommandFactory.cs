@@ -1,23 +1,31 @@
-﻿namespace Tag3_05Command.command;
+﻿using System.Reflection;
+
+namespace Tag3_05Command.command;
 
 public class CommandFactory
 {
+    private const string PREFIX = "Tag3_05Command.command.";
+    private const string SUFFIX = "Command";
+
     public static Command create(string zeile)
     {
-        Command result = null;
-        String [] tokens = zeile.Split(' ');
-        if (tokens[0] == "Add")
+        try
         {
-            result = new AddCommand();
-            result.Parse(tokens);
+            String[] tokens = zeile.Split(' ');
+            Assembly currentAssem = Assembly.GetExecutingAssembly();
+            Command? result = currentAssem
+                .GetType(PREFIX + tokens[0] + SUFFIX)
+                .GetConstructor(new Type[] { })
+                .Invoke(new object[] { }) as Command;
+            
+            result?.Parse(tokens);
+
+            return result;
         }
-        if (tokens[0] == "Print")
+        catch (Exception e)
         {
-            result = new PrintCommand();
-            result.Parse(tokens);
+            Console.WriteLine(e);
+            return null;
         }
-
-
-        return result;
     }
 }
