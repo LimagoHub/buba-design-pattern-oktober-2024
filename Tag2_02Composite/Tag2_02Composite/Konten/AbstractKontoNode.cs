@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
+using Tag2_02Composite.Konten.Visitors;
 
 namespace Tag2_02Composite.Baum
 {
-    internal class AbstractKontoNode: IEnumerable<AbstractKontoNode>
+    internal abstract class AbstractKontoNode: IEnumerable<AbstractKontoNode>
     {
 
         
@@ -55,6 +56,18 @@ namespace Tag2_02Composite.Baum
                 Console.WriteLine(node);
               
             }
+        }
+
+        public abstract void accept(IKontenVisitor visitor);
+
+        public void iterate(IKontenVisitor visitor)
+        {
+            visitor.init();
+            foreach (var node in this)
+            {
+                node.accept(visitor);
+            }
+            visitor.dispose();
         }
     }
 }

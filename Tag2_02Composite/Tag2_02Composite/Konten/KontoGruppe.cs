@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tag2_02Composite.Konten.Visitors;
 
 namespace Tag2_02Composite.Baum
 {
@@ -13,6 +14,10 @@ namespace Tag2_02Composite.Baum
         {
         }
         public override IList<AbstractKontoNode> Children => _children.AsReadOnly();
+        public override void accept(IKontenVisitor visitor)
+        {
+            visitor.visit(this);
+        }
 
         public void AddChild(AbstractKontoNode child)
         {
