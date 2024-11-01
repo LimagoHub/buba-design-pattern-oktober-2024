@@ -2,20 +2,20 @@
 
 namespace Tag3_05Command.command;
 
-public class ClearCommand: AbstractCommand
+public class ClearQueryCommand: AbstractQueryCommand
 {
-    private double oldValue=0;
+    private ICalculatorMemento calculatorMemento;
     
 
     public override void Execute()
     {
-        oldValue = Calculator.Instance.Memory;
+        calculatorMemento = Calculator.Instance.Memento;
         Calculator.Instance.Clear();
     }
 
     public override void Undo()
     {
-        Calculator.Instance.Memory = oldValue;
+        Calculator.Instance.Memento = calculatorMemento;
     }
 
     public override bool IsQuery()

@@ -1,21 +1,27 @@
-﻿namespace Tag3_05Command.command;
+﻿using Tag3_05Command.math;
+
+namespace Tag3_05Command.command;
 
 public abstract class AbstractCommand: Command
 {
-    public virtual void Parse(string[] tokens)
+    private ICalculatorMemento _memento;
+    public abstract void Parse(string[] tokens);
+
+    public void Execute()
     {
-        // NOP
+        _memento = Calculator.Instance.Memento;
+        ExecuteImpl();
     }
 
-    public abstract void Execute();
+    protected abstract void ExecuteImpl();
 
-    public virtual void Undo()
+    public void Undo()
     {
-        throw new InvalidOperationException("Undo nicht möglich.");
+        Calculator.Instance.Memento = _memento;
     }
 
-    public virtual bool IsQuery()
+    public bool IsQuery()
     {
-        return true;
+        return false;
     }
 }

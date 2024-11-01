@@ -2,26 +2,16 @@
 
 namespace Tag3_05Command.command;
 
-public class AddCommand: Command
+public class AddCommand: AbstractCommand
 {
     private double value=0;
-    public void Parse(string[] tokens)
+    public override void Parse(string[] tokens)
     {
         value = double.Parse(tokens[1]);
     }
 
-    public void Execute()
+    protected override void ExecuteImpl()
     {
         Calculator.Instance.Add(value);
-    }
-
-    public void Undo()
-    {
-        Calculator.Instance.Sub(value);
-    }
-
-    public bool IsQuery()
-    {
-        return false;
     }
 }

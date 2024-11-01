@@ -3,6 +3,14 @@
 public class Calculator
 {
     private static Calculator _instance = new Calculator();
+    
+    public double Memory { get; private set; }
+    public ICalculatorMemento Memento
+    {
+        get { return new CalculatorMemento(Memory);}
+        set { Memory = ((CalculatorMemento)value).Memory; }
+    }
+
 
     public static Calculator Instance
     {
@@ -15,7 +23,7 @@ public class Calculator
     
     
     
-    public double Memory { get; private set; }
+    
     
     
 
@@ -48,5 +56,15 @@ public class Calculator
     public void Print()
     {
         Console.WriteLine(Memory);
+    }
+
+    private class CalculatorMemento : ICalculatorMemento
+    {
+        public double Memory { get;}
+
+        public CalculatorMemento(double memory)
+        {
+            Memory = memory;
+        }
     }
 }

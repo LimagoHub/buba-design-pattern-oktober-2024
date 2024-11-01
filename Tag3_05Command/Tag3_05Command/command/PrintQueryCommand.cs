@@ -2,7 +2,7 @@
 
 namespace Tag3_05Command.command;
 
-public class PrintCommand: AbstractCommand
+public class PrintQueryCommand: AbstractQueryCommand
 {
     public override void Execute()
     {
