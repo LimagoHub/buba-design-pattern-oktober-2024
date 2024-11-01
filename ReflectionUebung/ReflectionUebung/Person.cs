@@ -1,27 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Lombok.NET;
 
 namespace ReflectionUebung
 {
-    public class Person
+    [NoArgsConstructor]
+    [AllArgsConstructor]
+    [ToString]
+    [With]
+    public partial class Person
     {
-       
-        public string Vorname { get; set; }
-        public string Nachname { get; set; }
+        [Property]
+        private string _vorname;
+        [Property]
+        private string _nachname;
 
-        public Person():this("John","Doe")
-        {
-
-        }
-
-        public Person(string vorname, string nachname)
-        {
-            Vorname = vorname;
-            Nachname = nachname;
-        }
-
-        public override string ToString() => $"{Vorname} {Nachname}";
     }
 
 }
