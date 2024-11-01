@@ -15,7 +15,7 @@ public class Calculator
     
     
     
-    public double Memory { get; set; }
+    public double Memory { get; private set; }
     
     
 
