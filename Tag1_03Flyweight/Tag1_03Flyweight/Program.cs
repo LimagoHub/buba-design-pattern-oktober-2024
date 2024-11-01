@@ -4,12 +4,19 @@
     {
         static void Main(string[] args)
         {
-           AttributedCharacter a1 = AttributedCharacter.GetInstance('A', false);
-           AttributedCharacter a2 = AttributedCharacter.GetInstance('A', false);
-           AttributedCharacter a3 = AttributedCharacter.GetInstance('A', true);
-           
-           Console.WriteLine(a1 == a2);
-           Console.WriteLine(a1 == a3);
+            using (var reader = new StreamReader("c:\\tmp\\baerchen.txt"))
+            {
+                int zeichen;
+                
+                while ((zeichen = reader.Read()) != -1)
+                {
+                    CharacterCounterFlyweight.getInstance().IncrementCounter((char)zeichen);
+                }
+
+                CharacterCounterFlyweight.Print();
+
+
+            }
         }
     }
 

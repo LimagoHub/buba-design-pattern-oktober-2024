@@ -9,6 +9,7 @@ class Program
         new FileProcessor()
          .AddFileHandler(new CharacterCounter())
          .AddFileHandler(new LineCounter())
+         .AddFileHandler(new CharacterSumGroup())
          .Run("c:\\tmp\\baerchen.txt");
     }
 }
